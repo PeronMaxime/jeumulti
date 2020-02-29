@@ -1,0 +1,85 @@
+.bloc{
+    border: 1px solid black;
+}
+
+h1, h2, p {
+  width: 100%;
+  text-align: center;
+}
+label, input {
+  display: block;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+form {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#joueur1 {
+  position: absolute;
+}
+
+#joueur2 {
+  position: absolute;
+}
+
+#buttons {
+  position: absolute;
+}
+
+#deplacement div {
+  width: 100%;
+  height: 50px;
+}
+
+#deplacement div div{
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background-color: lightcoral;
+  border-radius: 15px;
+}
+
+#buttons img {
+  width: 50px;
+  height: 50px;
+}
+
+#ligne1 {
+  display: flex;
+  justify-content: center;
+}
+
+#ligne2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#ligne3 {
+  display: flex;
+  justify-content: center;
+}
+
+#colonnes {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#classement {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+#titre_classement{
+  font-size: 18px;
+  font-weight: bold;
+}

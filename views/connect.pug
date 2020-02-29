@@ -1,0 +1,16 @@
+include ./includes/head.pug
+body
+  h1 Jeu multi
+  h2 Connexion
+  form(action="/" method="post")
+    label(for="pseudo") Pseudo : 
+    input(type="text" name="pseudo")
+    label(for="mdp") Mot de passe :
+    input(type="password" name="mdp")
+    input(type="submit" value="Se connecter")
+  if(err)
+    p= err
+  p#titre_classement Classement des meilleurs joueurs
+  ul#classement
+    each joueur in listeJoueursWin
+      li #{joueur.pseudo} - #{joueur.nbWin}

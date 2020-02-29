@@ -1,0 +1,44 @@
+include ./includes/head.pug
+body
+  h1 Jeu multi
+  #joueur1
+    p Joueur 1
+  #joueur2
+    p Joueur 2
+  div(id=uuid class='joueur')
+  #buttons
+    #colonnes
+      #mc1
+        img(src="/img/up.png", alt="", srcset="")
+      #mc2
+        img(src="/img/up.png", alt="", srcset="")
+      #mc3
+        img(src="/img/up.png", alt="", srcset="")
+      #mc4
+        img(src="/img/up.png", alt="", srcset="")
+      #mc5
+        img(src="/img/up.png", alt="", srcset="")
+      #mc6
+        img(src="/img/up.png", alt="", srcset="")
+      #mc7
+        img(src="/img/up.png", alt="", srcset="")
+      #mc8
+        img(src="/img/up.png", alt="", srcset="")
+      #mc9
+        img(src="/img/up.png", alt="", srcset="")
+      #mc10
+        img(src="/img/up.png", alt="", srcset="")
+    #deplacement
+      #ligne1
+        #dh
+          img(src="/img/up.png", alt="", srcset="")
+      #ligne2
+        #dg
+          img(src="/img/left.png", alt="", srcset="")
+        #dd
+          img(src="/img/right.png", alt="", srcset="")
+      #ligne3
+        #db
+          img(src="/img/down.png", alt="", srcset="")
+  script(src="/socket.io/socket.io.js")
+  script(src='/js/script.js')
