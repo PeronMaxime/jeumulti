@@ -9,7 +9,8 @@ app.set('view engine', 'pug');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://maxime:Mh9Sx5w2zx04acHu@maximeperon-ilsqk.mongodb.net/test?retryWrites=true&w=majority";
+const MongoClient = require('mongodb').MongoClient(uri, { useNewUrlParser: true });
 const uuidV1 = require('uuid/v1');
 const MongoStore = require('connect-mongo')(session);
 
@@ -24,7 +25,7 @@ app.use(cookieParser());
 
 app.use(session({
   store: new MongoStore({
-    url: "mongodb://localhost:27017/jeumulti"
+    url: uri
   }),
   secret:'123456789SECRET',
   saveUninitialized : false,
@@ -40,7 +41,7 @@ const portNumber = 8080;
 // Routes
 app.get('/', (req,res) => {
 
-  MongoClient.connect('mongodb://localhost:27017', {useUnifiedTopology:true}, function(err, client){
+  MongoClient.connect({useUnifiedTopology:true}, function(err, client){
     if (err) {
       console.log('Impossible de se connecter à la base de données : '+err);
       res.render('error500');
