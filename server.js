@@ -9,7 +9,7 @@ app.set('view engine', 'pug');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const uri = "mongodb+srv://maxime:Mh9Sx5w2zx04acHu@maximeperon-ilsqk.mongodb.net/test";
+const uri = "mongodb+srv://maxime:Mh9Sx5w2zx04acHu@maximeperon-ilsqk.mongodb.net/";
 const MongoClient = require('mongodb').MongoClient(uri, { useNewUrlParser: true });
 const uuidV1 = require('uuid/v1');
 const MongoStore = require('connect-mongo')(session);
