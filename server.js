@@ -406,9 +406,11 @@ webSocketServer.on('connect', function(socket){
         )
 
         users.find({uuid: socket.uuid}).toArray(function(err, data){
-          webSocketServer.emit('deconnexion', {
-            joueurDisconnect: data[0].pseudo
-          });
+          if(data.length){
+            webSocketServer.emit('deconnexion', {
+              joueurDisconnect: data[0].pseudo
+            });
+          }
         })
 
       }
