@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.use(session({
   store: new MongoStore({
-    url: "mongodb+srv://maxime:Mh9Sx5w2zx04acHu@maximeperon-ilsqk.mongodb.net/test"
+    url: uri
   }),
   secret:'123456789SECRET',
   saveUninitialized : false,
@@ -41,7 +41,7 @@ const portNumber = 8080;
 // Routes
 app.get('/', (req,res) => {
 
-  MongoClient.connect("mongodb+srv://maxime:Mh9Sx5w2zx04acHu@maximeperon-ilsqk.mongodb.net/test",{useUnifiedTopology:true}, function(err, client){
+  MongoClient.connect({useUnifiedTopology:true}, function(err, client){
     if (err) {
       console.log('Impossible de se connecter à la base de données : '+err);
       res.render('error500');
