@@ -41,7 +41,7 @@ const portNumber = process.env.PORT;
 // Routes
 app.get('/', (req,res) => {
 
-  MongoClient.connect({useUnifiedTopology:true}, function(err, client){
+  MongoClient.connect(function(err, client){
     if (err) {
       console.log('Impossible de se connecter à la base de données : '+err);
       res.render('error500');
