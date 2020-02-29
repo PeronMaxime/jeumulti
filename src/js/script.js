@@ -122,7 +122,7 @@ window.addEventListener('load', function(){
   /*****************************************************************
    ***************************WebSocket****************************** 
    *****************************************************************/
-  const socket = io('http://maximeperon.fr');
+  const socket = io('https://jeumultimaxime.herokuapp.com/');
   
   // Envoi de l'uuid du joueur
   let uuid = document.getElementsByClassName('joueur')[0].id;

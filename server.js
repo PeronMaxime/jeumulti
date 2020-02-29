@@ -34,7 +34,7 @@ app.use(session({
 app.use(express.static(__dirname+'/src'));
 
 // Global
-const portNumber = 8080;
+const portNumber = 80;
 
 
 // Routes
