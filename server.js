@@ -67,7 +67,7 @@ app.post('/', (req,res) => {
   }
 
   // Connexion à la base de données
-  MongoClient.connect('mongodb://localhost:27017/', { useUnifiedTopology: true }, function(err, client){
+  MongoClient.connect(function(err, client){
     if (err) {
       console.log('Impossible de se connecter à la base de données : '+err);
       res.render('error500');
@@ -214,7 +214,7 @@ webSocketServer.on('connect', function(socket){
     socket.uuid = data.uuid
 
     // Calcul du nombre de joueurs connectés
-    MongoClient.connect('mongodb://localhost:27017', {useUnifiedTopology: true}, function(err, client){
+    MongoClient.connect(function(err, client){
       if (err) {
         console.log('Impossible de se connecter à la BDD : '+err);
       }
@@ -235,7 +235,7 @@ webSocketServer.on('connect', function(socket){
   })
 
   socket.on('sendNumberPlayer', function(data){
-    MongoClient.connect('mongodb://localhost:27017', {useUnifiedTopology: true}, function(err, client){
+    MongoClient.connect(function(err, client){
       if (err) {
         console.log('Impossible de se connecter à la BDD : '+err);
       }
@@ -278,7 +278,7 @@ webSocketServer.on('connect', function(socket){
 
   socket.on('deplacerJoueur', function(data){
     
-    MongoClient.connect('mongodb://localhost:27017', {useUnifiedTopology: true}, function(err, client){
+    MongoClient.connect(function(err, client){
       if (err) {
         console.log('Impossible de se connecter à la BDD : '+err);
       }
@@ -370,7 +370,7 @@ webSocketServer.on('connect', function(socket){
         break;
     }
 
-    MongoClient.connect('mongodb://localhost:27017', {useUnifiedTopology: true}, function(err, client){
+    MongoClient.connect(function(err, client){
       if (err) {
         console.log('Impossible de se connecter à la BDD : '+err);
       }
@@ -393,7 +393,7 @@ webSocketServer.on('connect', function(socket){
     // Gérer la deconnexion
     console.log(reason);
 
-    MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true }, function(err,client){
+    MongoClient.connect(function(err, client){
       if (err) {
         console.log('Impossible de se connecter à la BDD : '+err);
       }
