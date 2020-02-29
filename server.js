@@ -178,7 +178,7 @@ const initBlocs = function(){
         tableauBloc[i][j] = "white";
       }
       else{
-        if(randomCase>0.8){
+        if(randomCase>0.4){
           tableauBloc[i][j] = "black";
         }
         else{
@@ -194,7 +194,7 @@ initBlocs();
 const modifieColonne = function(colonne){
   for(let i=0;i<nombreBlocHauteur;i++){
     let randomCase = Math.random();
-    if(randomCase>0.8){
+    if(randomCase>0.4){
       tableauBloc[i][colonne] = "black";
     }
     else{
