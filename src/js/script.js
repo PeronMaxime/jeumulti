@@ -145,7 +145,6 @@ window.addEventListener('load', function(){
     let nombreJoueur = data.joueurs.length;
     if(nombreJoueur == 1){
       numJoueur = 'j1';
-      canPlay = true;
       socket.emit('sendNumberPlayer', {
         uuid: uuid,
         numberPlayer: 'j1'
@@ -153,6 +152,7 @@ window.addEventListener('load', function(){
     }
     else if(nombreJoueur == 2){
       numJoueur = 'j2';
+      canPlay = true;
       socket.emit('sendNumberPlayer', {
         uuid: uuid,
         numberPlayer: 'j2'

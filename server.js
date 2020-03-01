@@ -63,6 +63,7 @@ app.post('/', (req,res) => {
   // Récupération des données en post
   const joueur = req.body;
   if(joueur.pseudo === "" || joueur.mdp === ""){
+    console.log('test connect');
     res.render('connect', {err: "Veuillez renseigner un pseudo et un mot de passe"});
   }
 
@@ -301,6 +302,8 @@ webSocketServer.on('connect', function(socket){
             webSocketServer.emit('win', {
               joueurWin: joueur[0].pseudo
             })
+
+            initBlocs();
           }
           else if(joueur[0].numberPlayer == 'j2' && data.x == 0){
 
@@ -314,6 +317,8 @@ webSocketServer.on('connect', function(socket){
             webSocketServer.emit('win', {
               joueurWin: joueur[0].pseudo
             })
+
+            initBlocs();
           }
           else {
             users.updateOne(
