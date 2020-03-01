@@ -63,7 +63,6 @@ app.post('/', (req,res) => {
   // Récupération des données en post
   const joueur = req.body;
   if(joueur.pseudo === "" || joueur.mdp === ""){
-    console.log('test connect');
     res.render('connect', {err: "Veuillez renseigner un pseudo et un mot de passe"});
   }
 
@@ -95,7 +94,7 @@ app.post('/', (req,res) => {
                   pseudo: joueur.pseudo,
                   mdp: joueur.mdp
                 }).toArray(function(err, data){
-                  if(data.length){
+                  if(data){
                     // Le mot de passe est valide, je lui créer une session et je l'envoie sur le jeu
                     
                     // Création de la session
