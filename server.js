@@ -94,31 +94,26 @@ app.post('/', (req,res) => {
                   pseudo: joueur.pseudo,
                   mdp: joueur.mdp
                 }).toArray(function(err, data){
-                  if (err) {
-                    console.log(err);
-                    res.render('connect', {err: "Votre mot de passe ne correspond pas"});
+                  console.log('data: '+data);
+                  if(data.length){
+                    // Le mot de passe est valide, je lui créer une session et je l'envoie sur le jeu
+                    
+                    // Création de la session
+                    req.session.pseudo = joueur.pseudo;
+                    req.session.uuid = data[0].uuid;
+    
+                    users.updateOne(
+                      {pseudo: joueur.pseudo},
+                      {$set: {connected: true}}
+                    )
+                
+    
+                    // Envoi vers le jeu
+                    res.render('jeu', {title: "Jeu Multijoueur", uuid: req.session.uuid});
                   }
-                  else{
-                    if(data.length){
-                      // Le mot de passe est valide, je lui créer une session et je l'envoie sur le jeu
-                      
-                      // Création de la session
-                      req.session.pseudo = joueur.pseudo;
-                      req.session.uuid = data[0].uuid;
-      
-                      users.updateOne(
-                        {pseudo: joueur.pseudo},
-                        {$set: {connected: true}}
-                      )
-                  
-      
-                      // Envoi vers le jeu
-                      res.render('jeu', {title: "Jeu Multijoueur", uuid: req.session.uuid});
-                    }
-                    else {
-                      // Le joueur existe mais le mdp ne correspond pas, je lui renvoie le formulaire de connexion
-                      res.render('connect', {err: "Votre mot de passe ne correspond pas"});
-                    }
+                  else {
+                    // Le joueur existe mais le mdp ne correspond pas, je lui renvoie le formulaire de connexion
+                    res.render('connect', {err: "Votre mot de passe ne correspond pas"});
                   }
                 })
               }
