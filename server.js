@@ -95,7 +95,7 @@ app.post('/', (req,res) => {
                   mdp: joueur.mdp
                 }).toArray(function(err, data){
                   console.log('data: '+data);
-                  if(data.length){
+                  if(data != ''){
                     // Le mot de passe est valide, je lui créer une session et je l'envoie sur le jeu
                     
                     // Création de la session
