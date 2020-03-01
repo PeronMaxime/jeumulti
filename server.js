@@ -96,6 +96,7 @@ app.post('/', (req,res) => {
                 }).toArray(function(err, data){
                   if (err) {
                     console.log(err);
+                    res.render('connect', {err: "Votre mot de passe ne correspond pas"});
                   }
                   else{
                     if(data.length){
